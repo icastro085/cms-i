@@ -1,8 +1,6 @@
-import { combineReducers } from 'redux';
-
 import {
   SIDEBAR_SET_ACTIVE,
-} from './actions';
+} from 'actions/sideBar/item';
 
 const CURRENT_LINK = window.location.hash.replace('#', '');
 
@@ -16,8 +14,4 @@ const sideBar = (state = CURRENT_LINK, action) => {
   }
 };
 
-const todoApp = combineReducers({
-  sideBar,
-});
-
-export default todoApp;
+export default sideBar;

@@ -10,18 +10,12 @@ import FontAwesome from 'Components/FontAwesome';
 import I18n from 'Components/I18n';
 import Item from 'Containers/SideBar/Item';
 
-const items = [
-  { icon: 'home', link: '/', label: 'content.home' },
-  { icon: 'file', link: '/content/page', label: 'content.page' },
-  { icon: 'newspaper-o', link: '/content/news', label: 'content.news' },
-  'line',
-  { icon: 'cog', link: '/setting', label: 'content.setting' },
-  { icon: 'sign-out', link: '/sign-out', label: 'content.sign-out' },
-];
+import config from 'config/environment';
 
 @CSSModules(styles, { allowMultiple: true })
 export default class SideBar extends Component {
   render() {
+    const { items } = config.sideBar;
     const itemsMenu = items.map((item, index) =>
       item === 'line' ? <li key={index}><hr/></li> :
       <Item key={index} {...item}>{item.label}</Item>
