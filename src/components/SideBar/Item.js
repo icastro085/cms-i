@@ -16,9 +16,10 @@ export default class Item extends Component {
   render() {
     const { active } = this.props;
     return (
-      <li onClick={this.props.onClick} styleName={active ? 'active' : ''}>
+      <li styleName={active ? 'active' : ''}>
         <FontAwesome icon={this.props.icon}/>
         <NavLink 
+          onClick={this.props.onClick}
           to={this.props.link}
           isActive={this.isActive}>
           <I18n>{this.props.children}</I18n>

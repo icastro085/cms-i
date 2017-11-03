@@ -1,12 +1,12 @@
 /*
  * action types
  */
-export const SET_ACTIVE_SIDEBAR_ITEM = 'SET_ACTIVE_SIDEBAR_ITEM';
+export const SIDEBAR_SET_ACTIVE = 'SIDEBAR_SET_ACTIVE';
 
 /*
  * action creators
  */
 export const setActiveSideBarItem = link => ({
-  type: SET_ACTIVE_SIDEBAR_ITEM,
+  type: SIDEBAR_SET_ACTIVE,
   link,
 });
