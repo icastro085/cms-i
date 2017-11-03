@@ -1,50 +1,23 @@
 import { combineReducers } from 'redux';
+
 import {
-  ADD_TODO,
-  TOGGLE_TODO,
-  SET_VISIBILITY_FILTER,
-  VisibilityFilters,
+  SET_ACTIVE_SIDEBAR_ITEM,
 } from './actions';
-const { SHOW_ALL } = VisibilityFilters;
-let id = 0;
 
-const visibilityFilter = (state = SHOW_ALL, action) => {
-  switch (action.type) {
-    case SET_VISIBILITY_FILTER:
-      return action.filter;
-    default:
-      return state;
-  }
-};
+const CURRENT_LINK = window.location.hash.replace('#', '');
 
-const todos = (state = [], action) => {
+const sideBar = (state = CURRENT_LINK, action) => {
   switch (action.type) {
-    case ADD_TODO:
-      return [
-        ...state,
-        {
-          id: ++id,
-          text: action.text,
-          completed: false
-        },
-      ];
-    case TOGGLE_TODO:
-      return state.map((todo, index) => {
-        if (index === action.index) {
-          return Object.assign({}, todo, {
-            completed: !todo.completed
-          });
-        }
-        return todo;
-      })
+    case SET_ACTIVE_SIDEBAR_ITEM:
+      return action.link;
+    break;
     default:
       return state;
   }
 };
 
 const todoApp = combineReducers({
-  visibilityFilter,
-  todos,
+  sideBar,
 });
 
 export default todoApp;

@@ -14,8 +14,9 @@ export default class Item extends Component {
     this.isActive = this.isActive.bind(this);
   }
   render() {
+    const { active } = this.props;
     return (
-      <li>
+      <li onClick={this.props.onClick} styleName={active ? 'active' : ''}>
         <FontAwesome icon={this.props.icon}/>
         <NavLink 
           to={this.props.link}

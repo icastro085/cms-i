@@ -8,7 +8,7 @@ import styles from './index.less';
 
 import FontAwesome from 'Components/FontAwesome';
 import I18n from 'Components/I18n';
-import Item from './Item';
+import Item from 'Containers/SideBar/Item';
 
 const items = [
   { icon: 'home', link: '/', label: 'content.home' },
