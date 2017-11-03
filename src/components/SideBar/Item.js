@@ -9,30 +9,17 @@ import I18n from 'Components/I18n';
 
 @CSSModules(styles, { allowMultiple: true })
 export default class Item extends Component {
-  constructor(props) {
-    super(props);
-    this.isActive = this.isActive.bind(this);
-  }
   render() {
     const { active } = this.props;
     return (
       <li styleName={active ? 'active' : ''}>
-        <FontAwesome icon={this.props.icon}/>
         <NavLink 
           onClick={this.props.onClick}
-          to={this.props.link}
-          isActive={this.isActive}>
+          to={this.props.link}>
+          <FontAwesome icon={this.props.icon}/>
           <I18n>{this.props.children}</I18n>
         </NavLink>
       </li>
     );
-  }
-
-  isActive(match) {
-    if (!match) {
-      return false
-    }
-    const eventID = parseInt(match.params.eventID)
-    return !isNaN(eventID) && eventID % 2 === 1;
   }
 }
