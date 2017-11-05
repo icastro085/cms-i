@@ -19,15 +19,16 @@ export default class Form extends Component {
   }
 
   render() {
-    const { item } = this.props;
+    const { isLoading } = this.props;
     const { text } = this.state;
     return (
       <form onSubmit={this.onSubmit}>
         <div className="input-group">
           <span className="input-group-addon">
-          <FontAwesome icon="search"/>
+            <FontAwesome icon="search"/>
           </span>
           <input
+            disabled={isLoading}
             name="text"
             type="text"
             value={text}
