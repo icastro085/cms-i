@@ -1,25 +1,22 @@
 import { connect } from 'react-redux';
-import FormComponent from 'Components/Content/Form';
+import SearchComponent from 'Components/Content/Search';
 import { search } from 'actions/content';
 
 const mapStateToProps = (state, ownProps) => {
-  const { isLoading } = state.content;
+  const { items, isLoading } = state.content;
   return {
     isLoading: isLoading,
+    items,
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    search: (params = {}, query = {}) => {
-      dispatch(search(params, query));
-    },
-  };
+  return {};
 }
 
-const Form = connect(
+const Search = connect(
   mapStateToProps,
   mapDispatchToProps
-)(FormComponent);
+)(SearchComponent);
 
-export default connect()(Form);
+export default connect()(Search);

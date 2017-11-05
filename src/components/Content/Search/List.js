@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
 
-import styles from './index.less';
+import styles from './../index.less';
 
 import I18n from 'Components/I18n';
 import FontAwesome from 'Components/FontAwesome';
 import Loading from 'Components/Content/Loading';
 
-import Item from 'Containers/Content/List/Item';
+import Item from 'Containers/Content/Search/List/Item';
 
 @CSSModules(styles, { allowMultiple: true })
 export default class List extends Component {
@@ -25,7 +25,6 @@ export default class List extends Component {
         <Item key={index} item={item}/>
       );
     }
-    
 
     return (
       <div className="table-responsive">

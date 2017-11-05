@@ -3,7 +3,7 @@ import ptBr from 'assets/i18n/ptBr';
 
 i18next.init({
   lng: 'ptBr',
-  debug: true,
+  debug: false,
   resources: {
     ptBr: {
       translation: ptBr

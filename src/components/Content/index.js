@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
-import { NavLink } from 'react-router-dom';
+import { HashRouter as Route, NavLink } from 'react-router-dom';
 
 import styles from './index.less';
 
 import Title from 'Components/Container/Title';
 import FontAwesome from 'Components/FontAwesome';
 import I18n from 'Components/I18n';
-import Form from 'Containers/Content/Form';
-import List from 'Containers/Content/List';
 
 @CSSModules(styles, { allowMultiple: true })
 export default class Content extends Component {
@@ -17,7 +15,7 @@ export default class Content extends Component {
   }
 
   render() {
-    const { type, search, items, isLoading } = this.props;
+    const { type } = this.props;
 
     return (
       <section styleName="content">
@@ -30,9 +28,7 @@ export default class Content extends Component {
           <I18n>{`content.create.${type}`}</I18n>
         </NavLink>
 
-        <Form type={type}/>
-        <hr/>
-        <List items={items} isLoading={isLoading}/>
+        {this.props.children}
       </section>
     );
   }

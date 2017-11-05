@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
 
-import styles from './../index.less';
+import styles from './../../index.less';
 
 import I18n from 'Components/I18n';
 
