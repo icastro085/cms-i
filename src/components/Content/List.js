@@ -32,8 +32,8 @@ export default class List extends Component {
           <table className="table table-hover">
             <thead>
               <tr>
-                <th>Title</th>
-                <th className="text-right">Options</th>
+                <th><I18n>content.list.title</I18n></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>

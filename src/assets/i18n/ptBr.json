@@ -4,6 +4,12 @@
     "page": "Página",
     "news": "Notícias",
     "setting": "Configurações",
-    "sign-out": "Sair"
+    "sign-out": "Sair",
+    "list": {
+      "title": "Título",
+      "delete": "Deletar",
+      "edit": "Editar"
+    },
+    "loading": "Carregando"
   }
 }

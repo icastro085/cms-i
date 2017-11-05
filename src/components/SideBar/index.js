@@ -27,6 +27,9 @@ export default class SideBar extends Component {
           className="btn btn-default">
           <i className="fa fa-bars" aria-hidden="true"></i>
         </a>
+
+        <div styleName="hide-content"/>
+
         <section styleName="side-bar">
           <ul>
             {itemsMenu}

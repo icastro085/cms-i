@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
 
+import I18n from 'Components/I18n';
+
 import styles from './index.less';
 
 @CSSModules(styles, { allowMultiple: true })
@@ -8,9 +10,9 @@ export default class Loading extends Component {
   render() {
     return (
       <p className="text-center">
-        <i className="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
+        <i className="fa fa-circle-o-notch fa-spin"></i>
         {' '}
-        Carregando
+        <I18n>content.loading</I18n>
       </p>
     );
   }

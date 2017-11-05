@@ -12,7 +12,14 @@ export default class Item extends Component {
     return (
       <tr>
         <td>{item.longname}</td>
-        <td className="text-right">{item.id}</td>
+        <td className="text-right" styleName="operation">
+          <a className="btn btn-default btn-sm">
+            <i className="fa fa-pencil-square-o"/> <I18n>content.list.edit</I18n>
+          </a>
+          <a className="btn btn-danger btn-sm">
+            <i className="fa fa-trash-o"/> <I18n>content.list.delete</I18n>
+          </a>
+        </td>
       </tr>
     );
   }
