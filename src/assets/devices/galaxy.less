@@ -1,0 +1,33 @@
+/* Portrait and Landscape */
+.galaxy-S3(@name, @css) {
+  @media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 2) {
+    .@{name} {
+      @css();
+    }
+  }
+}
+
+.galaxy-S4-S5-note3(@name, @css) {
+  @media screen 
+  and (device-width: 320px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+    .@{name} {
+      @css();
+    }
+  }
+}
+
+.galaxy-S6(@name, @css) {
+  @media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 4) {
+    .@{name} {
+      @css();
+    }
+  }
+}

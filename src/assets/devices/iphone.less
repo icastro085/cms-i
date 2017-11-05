@@ -1,0 +1,55 @@
+/* Portrait and Landscape */
+.iphone4-4s(@name, @css) {
+  @media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .@{name} {
+      @css();
+    }
+  }
+}
+
+.iphone-5-5S-5C-5SE(@name, @css) {
+  @media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 568px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .@{name} {
+      @css();
+    }
+  }
+}
+
+.iphone-6-6S-7-8(@name, @css) {
+  @media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2) { 
+    .@{name} {
+      @css();
+    }
+  }
+}
+
+.iphone-6-more-7-more-8-more(@name, @css) {
+  @media only screen 
+  and (min-device-width: 414px) 
+  and (max-device-width: 736px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    .@{name} {
+      @css();
+    }
+  }
+}
+
+.iphone-x(@name, @css) {
+  @media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 812px) 
+  and (-webkit-min-device-pixel-ratio: 3) { 
+    .@{name} {
+      @css();
+    }
+  }
+}

@@ -21,11 +21,18 @@ export default class SideBar extends Component {
       <Item key={index} {...item}>{item.label}</Item>
     );
     return (
-      <section styleName="side-bar">
-        <ul>
-          {itemsMenu}
-        </ul>
-      </section>
+      <div>
+        <a 
+          styleName="side-bar-menu-button"
+          className="btn btn-default">
+          <i className="fa fa-bars" aria-hidden="true"></i>
+        </a>
+        <section styleName="side-bar">
+          <ul>
+            {itemsMenu}
+          </ul>
+        </section>
+      </div>
     );
   }
 }

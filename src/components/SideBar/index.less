@@ -1,3 +1,5 @@
+@import "../../assets/devices";
+
 .side-bar {
   background-color: #eee;
   width: 200px;
@@ -43,4 +45,22 @@
     margin: 0;
     border-top: 1px solid #767676;
   }
+}
+
+.devices-mobile(side-bar, {
+  left: -100%;
+  transition: all 0.2s ease-in-out;
+});
+
+.side-bar-menu-button {
+  position: absolute;
+  top: 10px;
+  left: ~"calc(100% - 50px)";
+}
+
+.side-bar-menu-button:active + .side-bar,
+.side-bar-menu-button:focus + .side-bar,
+.side-bar-menu-button:hover + .side-bar {
+  left: 0;
+  transition: all 0.2s ease-in-out;
 }
