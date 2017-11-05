@@ -7,6 +7,9 @@ import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger'
 
+import "babel-polyfill";
+import 'whatwg-fetch';
+
 import todoApp from './todoApp';
 import App from './components/App';
 

@@ -6,29 +6,15 @@ export const CONTENT_UPDATE = 'CONTENT_UPDATE';
 export const CONTENT_EDIT = 'CONTENT_EDIT';
 export const CONTENT_REMOVE = 'CONTENT_REMOVE';
 
+import Content from './../services/Content';
+
 let startedRequest;
 
 export const search = (params, query) => (
   (dispatch) => {
-    if (startedRequest) {
-      clearTimeout(startedRequest);
-    }
-
-    startedRequest = setTimeout(() => {
-      const items = [];
-      let item;
-
-      for(let i=0; i<10; i++) {
-        item = {
-          id: Math.random(),
-          title: Math.random(),
-          resume: Math.random(),
-        };
-        items.push(item)
-      }
-
-      dispatch(onSearchResponse(items));
-    }, 3000)
+    dispatch(onSearchRequest(true));
+    return Content.all(params.type)
+    .then(items => dispatch(onSearchResponse(items)))
   }
 );
 

@@ -8,7 +8,6 @@ export default class ContentWrapper extends Component {
     const { type } = params;
     const { dispatch } = this.props;
     dispatch(search({ type }));
-    dispatch(onSearchRequest(true));
     return <Content type={type} items={undefined}/>;
   }
 }

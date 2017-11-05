@@ -14,7 +14,7 @@ export default class List extends Component {
   render() {
     const { isLoading } = this.props;
 
-    if (isLoading || true) {
+    if (isLoading) {
       return <Loading/>;
     }
 

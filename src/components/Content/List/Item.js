@@ -11,7 +11,7 @@ export default class Item extends Component {
     const { item } = this.props;
     return (
       <tr>
-        <td>{item.id}</td>
+        <td>{item.longname}</td>
         <td className="text-right">{item.id}</td>
       </tr>
     );
