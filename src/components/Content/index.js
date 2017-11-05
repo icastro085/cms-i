@@ -4,6 +4,7 @@ import CSSModules from 'react-css-modules';
 import styles from './index.less';
 
 import Title from 'Components/Container/Title';
+import List from 'Containers/Content/List';
 
 @CSSModules(styles, { allowMultiple: true })
 export default class Content extends Component {
@@ -12,35 +13,12 @@ export default class Content extends Component {
   }
 
   render() {
-    const { type, search } = this.props;
-    let { items } = this.props;
-
-    if (items && items.length) {
-      items = items.map((item, index) =>
-        <tr key={index}>
-          <td>{item.id}</td>
-          <td className="text-right">{item.id}</td>
-        </tr>
-      );
-    }
+    const { type, search, items, isLoading } = this.props;
 
     return (
       <section styleName="content">
         <Title>{`content.${type}`}</Title>
-
-        <div className="table-responsive">
-          <table className="table table-hover">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th className="text-right">Options</th>
-              </tr>
-            </thead>
-            <tbody>
-              {items}
-            </tbody>
-          </table>
-        </div>
+        <List items={items} isLoading={isLoading}/>
       </section>
     );
   }

@@ -3,9 +3,10 @@ import ContentComponent from 'Components/Content';
 import { search } from 'actions/content';
 
 const mapStateToProps = (state, ownProps) => {
-  const { items } = state.content;
+  const { items, isLoading } = state.content;
   return {
     items,
+    isLoading: isLoading,
   };
 };
 
