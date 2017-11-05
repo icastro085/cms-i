@@ -11,6 +11,10 @@
       "delete": "Deletar",
       "edit": "Editar"
     },
-    "loading": "Carregando"
+    "loading": "Carregando",
+    "create": {
+      "page": "Criar nova página",
+      "news": "Criar nova notícia"
+    }
   }
 }

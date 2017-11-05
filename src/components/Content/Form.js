@@ -23,7 +23,7 @@ export default class Form extends Component {
     const { text } = this.state;
     return (
       <form onSubmit={this.onSubmit}>
-        <div className="input-group">
+        <div className="input-group" styleName="input-search">
           <span className="input-group-addon">
             <FontAwesome icon="search"/>
           </span>
