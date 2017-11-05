@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
 import Autobind from 'autobind-decorator'
+import TinyMCE from 'react-tinymce';
 
 import styles from './index.less';
 
@@ -20,10 +21,28 @@ export default class Form extends Component {
 
     return (
       <form onSubmit={this.onSubmit}>
-        <div class="form-group">
+        <div className="form-group">
           <label>Título</label>
-          <input type="text" class="form-control" placeholder="Título..."/>
+          <input type="text" className="form-control" placeholder="Título..."/>
         </div>
+
+        <label>Text</label>
+        <TinyMCE
+          content="<p>This is the initial content of the editor</p>"
+          config={{
+            height: 500,
+            menubar: true,
+            theme: 'modern',
+            statusbar : false,
+            plugins: [
+              'advlist autolink lists link image charmap print preview anchor textcolor',
+              'searchreplace visualblocks code fullscreen',
+              'insertdatetime media table contextmenu paste code help'
+            ],
+            toolbar: 'insert | undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help'
+          }}
+          onChange={this.onChangeText}
+        />
       </form>
     );
   }
@@ -32,6 +51,9 @@ export default class Form extends Component {
   onChangeText(e) {
     // const text = e.target.value;
     // this.setState({ text });
+    if (e.target.getContent) {
+      console.log(e.target.getContent());
+    }
   }
 
   @Autobind

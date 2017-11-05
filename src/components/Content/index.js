@@ -21,7 +21,7 @@ export default class Content extends Component {
       <section styleName="content">
         <Title>{`content.${type}`}</Title>
         <NavLink
-          to={`content/${type}/new`}
+          to={`/content/${type}/create`}
           className="btn btn-default btn-primary pull-right"
           styleName="add-new">
           <FontAwesome icon="plus"/>{' '}

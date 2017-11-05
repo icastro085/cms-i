@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import Content from 'Containers/Content';
-import Search from 'Containers/Content/Search';
+import Edit from 'Containers/Content/Edit';
 import { search } from 'actions/content';
 
-export default class ContentWrapper extends Component {
+export default class ContentEditWrapper extends Component {
   render() {
     const { params, url } = this.props.match;
-    const { type } = params;
+    const { type, id } = params;
     const { dispatch } = this.props;
-    dispatch(search({ type }));
+    //dispatch(search({ type }));
+
+    if (id !== 'create') {
+      
+    }
+
     return (
       <Content type={type}>
-        <Search type={type}/>
+        <Edit type={type} item={{}}/>
       </Content>
     );
   }
