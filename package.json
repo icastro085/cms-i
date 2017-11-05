@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "autobind-decorator": "^2.1.0",
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
     "i18next": "^10.0.7",
