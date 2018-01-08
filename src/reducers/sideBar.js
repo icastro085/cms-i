@@ -1,6 +1,6 @@
 import {
   SIDEBAR_SET_ACTIVE,
-} from 'actions/sideBar/item';
+} from 'actions/sideBar';
 
 const CURRENT_LINK = window.location.hash.replace('#', '');
 
