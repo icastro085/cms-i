@@ -4,11 +4,11 @@ import { HashRouter as Route, NavLink } from 'react-router-dom';
 
 import styles from './index.less';
 
-import Title from 'Components/Container/Title';
-import FontAwesome from 'Components/FontAwesome';
-import I18n from 'Components/I18n';
+import Title from './../Container/Title';
+import FontAwesome from './../FontAwesome';
+import I18n from './../I18n';
 
-import Search from 'Containers/Content/Search';
+import Search from './../../containers/Content/Search';
 
 @CSSModules(styles, { allowMultiple: true })
 export default class Content extends Component {

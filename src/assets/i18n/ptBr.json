@@ -14,7 +14,9 @@
     "loading": "Carregando",
     "create": {
       "page": "Criar nova página",
-      "news": "Criar nova notícia"
+      "news": "Criar nova notícia",
+      "title": "Título",
+      "text": "Texto"
     }
   }
 }

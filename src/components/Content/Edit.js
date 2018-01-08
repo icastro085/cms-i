@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
-import Autobind from 'autobind-decorator'
-import TinyMCE from 'react-tinymce';
+import Autobind from 'autobind-decorator';
+import CKEditor from 'react-ckeditor-component';
 
 import styles from './index.less';
 
-import FontAwesome from 'Components/FontAwesome';
-import I18n from 'Components/I18n';
-import i18n from 'i18n';
+import FontAwesome from './../FontAwesome';
+import i18n from './../../i18n';
 
 @CSSModules(styles, { allowMultiple: true })
 export default class Form extends Component {
@@ -16,45 +15,52 @@ export default class Form extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    if (id !== 'create') {
+    }
+  }
+
   render() {
-    const { isLoading } = this.props;
+    const { isLoading, data } = this.props;
 
     return (
       <form onSubmit={this.onSubmit}>
         <div className="form-group">
-          <label>Título</label>
-          <input type="text" className="form-control" placeholder="Título..."/>
+          <label>{i18n.t('content.create.title')}</label>
+          <input
+            type="text"
+            name="title"
+            className="form-control"
+            value={data.title}
+            onChange={this.onChange}/>
         </div>
 
-        <label>Text</label>
-        <TinyMCE
-          content="<p>This is the initial content of the editor</p>"
-          config={{
-            height: 500,
-            menubar: true,
-            theme: 'modern',
-            statusbar : false,
-            plugins: [
-              'hr',
-              'advlist autolink lists link image charmap print preview anchor textcolor',
-              'searchreplace visualblocks code fullscreen',
-              'insertdatetime media table contextmenu paste code help'
-            ],
-            toolbar: 'hr insert | undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help'
+        <label>{i18n.t('content.create.text')}</label>
+        <CKEditor 
+          activeClass="p10" 
+          content={data.text} 
+          events={{
+            change: this.onChange
           }}
-          onChange={this.onChangeText}
-        />
+          config={{
+            height: '400',
+          }}
+          />
       </form>
     );
   }
 
   @Autobind
-  onChangeText(e) {
-    // const text = e.target.value;
-    // this.setState({ text });
-    if (e.target.getContent) {
-      console.log(e.target.getContent());
+  onChange(e) {
+    const { data } = this.props;
+    if (e.editor) {
+      data.text = e.editor.getData();
+    } else {
+      const { name, value } = e.target;
+      data[name] = value
     }
+    console.log(data);
   }
 
   @Autobind

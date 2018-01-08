@@ -3,10 +3,11 @@ import EditComponent from 'Components/Content/Edit';
 import { search } from 'actions/content';
 
 const mapStateToProps = (state, ownProps) => {
-  const { isLoading, item } = state.content;
+  const { isLoading } = state.content;
+  const { match } = ownProps;
   return {
     isLoading: isLoading,
-    item,
+    match,
   };
 };
 

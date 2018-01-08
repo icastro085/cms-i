@@ -7,7 +7,7 @@ import Container from './Container';
 import Home from './Home';
 import Content from './../containers/Content';
 import Search from './../containers/Content/Search';
-import ContentEditWrapper from './../containers/ContentEditWrapper';
+import Edit from './../containers/Content/Edit';
 
 import config from './../config';
 
@@ -22,8 +22,8 @@ class App extends Component {
         path={`/${type}`}
         render={
           (props) => (
-            <Content {...props} type={type} key={type}>
-              <Search type={type}/>
+            <Content {...props} type={type}>
+              <Search {...props} type={type}/>
             </Content>
           )
         }/>
@@ -35,7 +35,11 @@ class App extends Component {
         exact
         path={`/${type}/:id`}
         render={
-          (props) => <ContentEditWrapper {...props} type={type} key={`${type}-edit`}/>
+          (props) => (
+            <Content {...props} type={type}>
+              <Edit {...props} type={type} data={{}}/>
+            </Content>
+          )
         }/>
     ));
 
