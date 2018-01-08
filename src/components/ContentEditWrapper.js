@@ -6,8 +6,8 @@ import { search } from 'actions/content';
 export default class ContentEditWrapper extends Component {
   render() {
     const { params, url } = this.props.match;
-    const { type, id } = params;
-    const { dispatch } = this.props;
+    const { id } = params;
+    const { dispatch, type } = this.props;
     //dispatch(search({ type }));
 
     if (id !== 'create') {

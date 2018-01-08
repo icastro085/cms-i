@@ -4,9 +4,11 @@ import { search } from 'actions/content';
 
 const mapStateToProps = (state, ownProps) => {
   const { items, isLoading } = state.content;
+  const { type } = ownProps;
   return {
     items,
-    isLoading: isLoading,
+    isLoading,
+    type,
   };
 };
 

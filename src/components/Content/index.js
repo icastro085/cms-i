@@ -8,10 +8,17 @@ import Title from 'Components/Container/Title';
 import FontAwesome from 'Components/FontAwesome';
 import I18n from 'Components/I18n';
 
+import Search from 'Containers/Content/Search';
+
 @CSSModules(styles, { allowMultiple: true })
 export default class Content extends Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount() {
+    const { type, search } = this.props;
+    search({ type });
   }
 
   render() {
@@ -21,14 +28,14 @@ export default class Content extends Component {
       <section styleName="content">
         <Title>{`content.${type}`}</Title>
         <NavLink
-          to={`/content/${type}/create`}
+          to={`/${type}/create`}
           className="btn btn-default btn-primary pull-right"
           styleName="add-new">
           <FontAwesome icon="plus"/>{' '}
           <I18n>{`content.create.${type}`}</I18n>
         </NavLink>
 
-        {this.props.children}
+        {this.props.children || null}
       </section>
     );
   }
