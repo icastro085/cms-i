@@ -33,20 +33,23 @@ export const onSearchResponse = (items) => (
 );
 
 export const create = (type, data = {}) => (
-  (dispatch) => {
-    return Content.save(type, data)
+  (dispatch) => (
+    Content.save(type, data)
       .then(data => dispatch({
         type: CONTENT_CREATE,
         data,
       }))
-  }
+  )
 );
 
-export const update = (data) => (
-  {
-    type: CONTENT_UPDATE,
-    data,
-  }
+export const update = (type, data = {}) => (
+  (dispatch) => (
+    Content.update(type, data)
+      .then(data => dispatch({
+        type: CONTENT_UPDATE,
+        data,
+      }))
+  )
 );
 
 export const edit = (id) => (

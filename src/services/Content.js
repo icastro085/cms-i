@@ -11,4 +11,9 @@ export default class Content {
     return content.save(type, data)
       .then(response => response.data)
   }
+
+  static update(type, data) {
+    return content.update(type, data.id, data)
+      .then(response => response.data)
+  }
 }

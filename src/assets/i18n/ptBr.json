@@ -17,7 +17,8 @@
       "news": "Criar nova notícia",
       "title": "Título",
       "text": "Texto",
-      "save": "Salvar"
+      "save": "Salvar",
+      "update": "Atualizar"
     }
   }
 }

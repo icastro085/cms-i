@@ -83,8 +83,9 @@ export default class Form extends Component {
           <input
           className="btn btn-primary btn-lg"
           type="submit"
-          value={i18n.t('content.create.save')}/>
+          value={i18n.t(`content.create.${data.id ? 'update' : 'save'}`)}/>
         </p>
+        <hr/>
       </form>
     );
   }
@@ -105,8 +106,12 @@ export default class Form extends Component {
   @Autobind
   onSubmit(e) {
     e.preventDefault();
-    const { create } = this.props;
+    const { create, update } = this.props;
     const { data } = this.state;
-    create(data);
+    if (data.id) {
+      update(data);
+    } else {
+      create(data);
+    }
   }
 }

@@ -3,6 +3,7 @@ import EditComponent from './../../components/Content/Edit';
 import {
   search,
   create,
+  update,
 } from './../../actions/content';
 
 const mapStateToProps = (state, ownProps) => {
@@ -22,7 +23,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     search: (params = {}, query = {}) => {
       dispatch(search(params, query));
     },
-    create: data => dispatch(create(type, data))
+    create: data => dispatch(create(type, data)),
+    update: data => dispatch(update(type, data))
   };
 }
 

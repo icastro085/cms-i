@@ -34,6 +34,7 @@ const content = (state = {}, action) => {
       );
     break;
     case CONTENT_CREATE:
+    case CONTENT_UPDATE:
       return Object.assign(
         {},
         state,
