@@ -25,18 +25,20 @@ export const onSearchRequest = (isLoading) => (
   }
 );
 
-export const onSearchResponse = (response) => (
+export const onSearchResponse = (items) => (
   {
     type: CONTENT_SEARCH_RESPONSE,
-    response,
+    items,
   }
 );
 
 export const create = (type, data = {}) => (
   (dispatch) => {
     return Content.save(type, data)
-      .then(response => console.log(response))
-      .catch(err => console.log(err));
+      .then(data => dispatch({
+        type: CONTENT_CREATE,
+        data,
+      }))
   }
 );
 

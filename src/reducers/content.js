@@ -10,10 +10,10 @@ import
   CONTENT_REMOVE,
 } from 'actions/content';
 
-const onResultSearch = (response) => {
+const onResultSearch = (items) => {
   return {
     isLoading: false,
-    items: response,
+    items,
   };
 };
 
@@ -23,7 +23,7 @@ const content = (state = {}, action) => {
       return Object.assign(
         {},
         state,
-        onResultSearch(action.response),
+        onResultSearch(action.items),
       );
     break;
     case CONTENT_SEARCH_REQUEST:
@@ -31,6 +31,13 @@ const content = (state = {}, action) => {
         {},
         state,
         { isLoading: action.isLoading }
+      );
+    break;
+    case CONTENT_CREATE:
+      return Object.assign(
+        {},
+        state,
+        { data: Object.assign({}, action.data) }
       );
     break;
     default:

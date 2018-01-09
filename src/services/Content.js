@@ -8,11 +8,7 @@ export default class Content {
   }
 
   static save(type, data) {
-    console.log(type, data);
-    return content.save(type)
-      .post(data)
-      .then((response) => {
-        console.log(response);
-      })
+    return content.save(type, data)
+      .then(response => response.data)
   }
 }

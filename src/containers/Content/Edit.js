@@ -6,12 +6,13 @@ import {
 } from './../../actions/content';
 
 const mapStateToProps = (state, ownProps) => {
-  const { isLoading } = state.content;
+  const { isLoading, data } = state.content;
   const { match, type } = ownProps;
   return {
     isLoading: isLoading,
     match,
     type,
+    data: data || ownProps.data,
   };
 };
 
