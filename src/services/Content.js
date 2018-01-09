@@ -3,11 +3,16 @@ import * as content from './../resources/content';
 export default class Content {
   static all(type) {
     return content.all(type)
-      .getAll()
+      .then(response => response.data)
+      .catch(e => [{}]);
+  }
+
+  static save(type, data) {
+    console.log(type, data);
+    return content.save(type)
+      .post(data)
       .then((response) => {
-        const entities = response.body();
-        const items = entities.map(entity => entity.data());
-        return items;
-      });
+        console.log(response);
+      })
   }
 }

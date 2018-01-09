@@ -32,10 +32,11 @@ export const onSearchResponse = (response) => (
   }
 );
 
-export const create = (data) => (
-  {
-    type: CONTENT_CREATE,
-    data,
+export const create = (type, data = {}) => (
+  (dispatch) => {
+    return Content.save(type, data)
+      .then(response => console.log(response))
+      .catch(err => console.log(err));
   }
 );
 

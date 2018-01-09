@@ -41,12 +41,20 @@ export default class Form extends Component {
           activeClass="p10" 
           content={data.text} 
           events={{
-            change: this.onChange
+            change: this.onChange,
           }}
           config={{
             height: '400',
           }}
           />
+
+        <hr/>
+        <p>
+          <input
+          className="btn btn-primary btn-lg"
+          type="submit"
+          value={i18n.t('content.create.save')}/>
+        </p>
       </form>
     );
   }
@@ -60,11 +68,13 @@ export default class Form extends Component {
       const { name, value } = e.target;
       data[name] = value
     }
-    console.log(data);
   }
 
   @Autobind
   onSubmit(e) {
     e.preventDefault();
+    const { data, create } = this.props;
+    console.log(data);
+    create(data);
   }
 }
