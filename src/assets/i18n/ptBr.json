@@ -18,7 +18,8 @@
       "title": "Título",
       "text": "Texto",
       "save": "Salvar",
-      "update": "Atualizar"
+      "update": "Atualizar",
+      "back": "Voltar"
     }
   }
 }

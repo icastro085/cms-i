@@ -8,8 +8,6 @@ import Title from './../Container/Title';
 import FontAwesome from './../FontAwesome';
 import I18n from './../I18n';
 
-import Search from './../../containers/Content/Search';
-
 @CSSModules(styles, { allowMultiple: true })
 export default class Content extends Component {
   constructor(props) {
@@ -22,14 +20,26 @@ export default class Content extends Component {
   }
 
   render() {
-    const { type } = this.props;
+    const { type, enableBtnBack } = this.props;
 
     return (
       <section styleName="content">
         <Title>{`content.${type}`}</Title>
+        {
+          enableBtnBack && 
+          (
+            <NavLink
+              to={`/${type}`}
+              className="btn btn-success"
+              styleName="btn-back">
+              <FontAwesome icon="arrow-left"/>{' '}
+              <I18n>{'content.create.back'}</I18n>
+            </NavLink>
+          )
+        }
         <NavLink
           to={`/${type}/create`}
-          className="btn btn-default btn-primary pull-right"
+          className="btn btn-primary"
           styleName="add-new">
           <FontAwesome icon="plus"/>{' '}
           <I18n>{`content.create.${type}`}</I18n>

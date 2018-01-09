@@ -1,4 +1,4 @@
-import * as content from './../resources/content';
+import * as content from './../api/content';
 
 export default class Content {
   static all(type) {

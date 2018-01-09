@@ -36,7 +36,7 @@ class App extends Component {
         path={`/${type}/:id`}
         render={
           (props) => (
-            <Content {...props} type={type}>
+            <Content {...props} type={type} enableBtnBack={true}>
               <Edit {...props} type={type} data={{}}/>
             </Content>
           )
