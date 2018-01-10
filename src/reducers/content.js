@@ -38,7 +38,10 @@ const content = (state = {}, action) => {
       return Object.assign(
         {},
         state,
-        { data: Object.assign({}, action.data) }
+        {
+          data: Object.assign({}, action.data),
+          isLoading: false,
+        }
       );
     break;
     default:

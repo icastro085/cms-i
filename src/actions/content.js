@@ -14,7 +14,7 @@ export const search = (params, query) => (
   (dispatch) => {
     dispatch(onSearchRequest(true));
     return Content.all(params.type)
-    .then(items => dispatch(onSearchResponse(items)))
+      .then(items => dispatch(onSearchResponse(items)))
   }
 );
 
@@ -33,23 +33,25 @@ export const onSearchResponse = (items) => (
 );
 
 export const create = (type, data = {}) => (
-  (dispatch) => (
-    Content.save(type, data)
+  (dispatch) => {
+    dispatch(onSearchRequest(true));
+    return Content.save(type, data)
       .then(data => dispatch({
         type: CONTENT_CREATE,
         data,
       }))
-  )
+  }
 );
 
 export const update = (type, data = {}) => (
-  (dispatch) => (
-    Content.update(type, data)
+  (dispatch) => {
+    dispatch(onSearchRequest(true));
+    return Content.update(type, data)
       .then(data => dispatch({
         type: CONTENT_UPDATE,
         data,
       }))
-  )
+  }
 );
 
 export const edit = (id) => (

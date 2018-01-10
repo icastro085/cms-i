@@ -20,17 +20,18 @@ export default class Content extends Component {
   }
 
   render() {
-    const { type, enableBtnBack } = this.props;
+    const { type, enableBtnBack, isLoading } = this.props;
 
     return (
       <section styleName="content">
+        <fieldset disabled={isLoading}>
         <Title>{`content.${type}`}</Title>
         {
           enableBtnBack && 
           (
             <NavLink
               to={`/${type}`}
-              className="btn btn-success"
+              className={`btn btn-default`}
               styleName="btn-back">
               <FontAwesome icon="arrow-left"/>{' '}
               <I18n>{'content.create.back'}</I18n>
@@ -39,11 +40,12 @@ export default class Content extends Component {
         }
         <NavLink
           to={`/${type}/create`}
-          className="btn btn-primary"
+          className={`btn btn-primary`}
           styleName="add-new">
           <FontAwesome icon="plus"/>{' '}
           <I18n>{`content.create.${type}`}</I18n>
         </NavLink>
+        </fieldset>
 
         {this.props.children || null}
       </section>

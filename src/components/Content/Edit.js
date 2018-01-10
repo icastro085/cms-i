@@ -3,6 +3,7 @@ import CSSModules from 'react-css-modules';
 import Autobind from 'autobind-decorator';
 import CKEditor from 'react-ckeditor-component';
 import _ from 'lodash';
+import { ToastContainer as Toast } from 'react-toastr';
 
 import styles from './index.less';
 
@@ -53,40 +54,48 @@ export default class Form extends Component {
 
   render() {
     const { data, isLoading } = this.state;
-
     return (
-      <form onSubmit={this.onSubmit}>
-        <div className="form-group">
-          <label>{i18n.t('content.create.title')}</label>
-          <input
-            type="text"
-            name="title"
-            className="form-control"
-            value={data.title}
-            onChange={this.onChange}/>
-        </div>
+      <section>
+        <Toast
+            ref={ref => this.toast = ref}
+            className="toast-top-right"/>
+        <form onSubmit={this.onSubmit}>
 
-        <label>{i18n.t('content.create.text')}</label>
-        <CKEditor 
-          activeClass="p10" 
-          content={data.text} 
-          events={{
-            change: this.onChange,
-          }}
-          config={{
-            height: '400',
-          }}
-          />
+          <fieldset disabled={isLoading}>
+            <div className="form-group">
+              <label>{i18n.t('content.create.title')}</label>
+              <input
+                type="text"
+                name="title"
+                className={`form-control ${isLoading ? 'disabled' : ''}`}
+                value={data.title}
+                onChange={this.onChange}/>
+            </div>
 
-        <hr/>
-        <p>
-          <input
-          className="btn btn-primary btn-lg"
-          type="submit"
-          value={i18n.t(`content.create.${data.id ? 'update' : 'save'}`)}/>
-        </p>
-        <hr/>
-      </form>
+            <label>{i18n.t('content.create.text')}</label>
+            <CKEditor
+              activeClass="p10" 
+              content={data.text} 
+              events={{
+                change: this.onChange,
+              }}
+              config={{
+                height: '400',
+                readOnly: isLoading,
+              }}
+              />
+
+            <hr/>
+            <p>
+              <input
+              className={`btn btn-success btn-lg`}
+              type="submit"
+              value={i18n.t(`content.create.${data.id ? 'update' : 'save'}`)}/>
+            </p>
+            <hr/>
+          </fieldset>
+        </form>
+      </section>
     );
   }
 
@@ -106,12 +115,25 @@ export default class Form extends Component {
   @Autobind
   onSubmit(e) {
     e.preventDefault();
-    const { create, update } = this.props;
+    const { create, update, isLoading } = this.props;
     const { data } = this.state;
+
     if (data.id) {
-      update(data);
+      update(data)
+        .then( () => this.showMessageSuccess());
     } else {
-      create(data);
+      create(data)
+        .then( () => this.showMessageSuccess());
     }
+  }
+
+  showMessageSuccess() {
+    this.toast.success(
+      'Registro salvo com sucesso!',
+      'Atenção!',
+      {
+        closeButton: true,
+      }
+    );
   }
 }
