@@ -11,7 +11,7 @@ export default class Item extends Component {
     const { item } = this.props;
     return (
       <tr>
-        <td>{item.longname}</td>
+        <td>{item.title}</td>
         <td className="text-right" styleName="operation">
           <a className="btn btn-default btn-sm">
             <i className="fa fa-pencil-square-o"/> <I18n>content.list.edit</I18n>

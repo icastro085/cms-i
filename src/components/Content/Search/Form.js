@@ -56,6 +56,7 @@ export default class Form extends Component {
       type,
     }
     const query = {
+      title: text,
       text,
     }
     search(params, query);
