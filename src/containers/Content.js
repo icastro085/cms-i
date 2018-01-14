@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ContentComponent from 'Components/Content';
+import ContentComponent from './../components/Content';
 import { search } from 'actions/content';
 
 const mapStateToProps = (state, ownProps) => {

@@ -6,11 +6,12 @@ import CSSModules from 'react-css-modules';
 
 import styles from './index.less';
 
-import FontAwesome from 'Components/FontAwesome';
-import I18n from 'Components/I18n';
-import Item from 'Containers/SideBar/Item';
+import FontAwesome from './../FontAwesome';
+import I18n from './../I18n';
 
-import config from 'config/environment';
+import Item from './../../containers/SideBar/Item';
+
+import config from './../../config';
 
 @CSSModules(styles, { allowMultiple: true })
 export default class SideBar extends Component {

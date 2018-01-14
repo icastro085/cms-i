@@ -28,10 +28,7 @@ module.exports = {
       path.resolve(__dirname, 'src'),
       'node_modules',
     ],
-    alias: {
-      Components: path.resolve(__dirname, 'src/components/'),
-      Containers: path.resolve(__dirname, 'src/containers/')
-    }
+    alias: {}
   },
 
   module: {

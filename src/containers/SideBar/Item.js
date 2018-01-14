@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ItemComponent from 'Components/SideBar/Item';
+import ItemComponent from './../../components/SideBar/Item';
 import { setActiveSideBarItem } from 'actions/sideBar';
 
 const mapStateToProps = (state, ownProps) => {

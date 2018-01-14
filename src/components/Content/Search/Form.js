@@ -4,9 +4,9 @@ import Autobind from 'autobind-decorator'
 
 import styles from './../index.less';
 
-import FontAwesome from 'Components/FontAwesome';
-import I18n from 'Components/I18n';
-import i18n from 'i18n';
+import FontAwesome from './../../FontAwesome';
+import I18n from './../../I18n';
+import i18n from './../../../i18n';
 
 @CSSModules(styles, { allowMultiple: true })
 export default class Form extends Component {

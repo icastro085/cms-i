@@ -3,11 +3,11 @@ import CSSModules from 'react-css-modules';
 
 import styles from './../index.less';
 
-import I18n from 'Components/I18n';
-import FontAwesome from 'Components/FontAwesome';
-import Loading from 'Components/Content/Loading';
+import I18n from './../../I18n';
+import FontAwesome from './../../FontAwesome';
+import Loading from './../Loading';
 
-import Item from 'Containers/Content/Search/List/Item';
+import Item from './../../../containers/Content/Search/List/Item';
 
 @CSSModules(styles, { allowMultiple: true })
 export default class List extends Component {

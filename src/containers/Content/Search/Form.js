@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import FormComponent from 'Components/Content/Search/Form';
+import FormComponent from './../../../components/Content/Search/Form';
 import { search } from 'actions/content';
 
 const mapStateToProps = (state, ownProps) => {
