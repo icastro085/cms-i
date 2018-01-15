@@ -11,12 +11,12 @@ import List from './../../containers/Content/Search/List';
 @CSSModules(styles, { allowMultiple: true })
 export default class Search extends Component {
   render() {
-    const { type, items, isLoading } = this.props;
+    const { type } = this.props;
     return (
       <div>
         <Form type={type}/>
         <hr/>
-        <List type={type} items={items} isLoading={isLoading}/>
+        <List type={type}/>
       </div>
     );
   }

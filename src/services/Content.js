@@ -2,7 +2,6 @@ import * as content from './../api/content';
 
 export default class Content {
   static all(type, query = {}) {
-    console.log(query);
     return content.all(type, query)
       .then(response => response.data)
       .catch(e => [{}]);

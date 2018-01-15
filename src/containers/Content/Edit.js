@@ -8,12 +8,12 @@ import {
 
 const mapStateToProps = (state, ownProps) => {
   const { isLoading, data } = state.content;
-  const { match, type } = ownProps;
+  const { type, match } = ownProps;
   return {
-    isLoading: isLoading,
-    match,
     type,
-    data: data || ownProps.data,
+    isLoading,
+    match,
+    data: data,
   };
 };
 

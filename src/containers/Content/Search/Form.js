@@ -5,7 +5,7 @@ import { search } from 'actions/content';
 const mapStateToProps = (state, ownProps) => {
   const { isLoading } = state.content;
   return {
-    isLoading: isLoading,
+    isLoading,
   };
 };
 

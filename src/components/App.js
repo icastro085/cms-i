@@ -37,7 +37,7 @@ class App extends Component {
         render={
           (props) => (
             <Content {...props} type={type} enableBtnBack={true}>
-              <Edit {...props} type={type} data={{}}/>
+              <Edit {...props} type={type}/>
             </Content>
           )
         }/>

@@ -28,16 +28,16 @@ export default class Content extends Component {
         <Title>{`content.${type}`}</Title>
         {
           enableBtnBack && 
-          (
-            <NavLink
-              to={`/${type}`}
-              className={`btn btn-default`}
-              styleName="btn-back">
-              <FontAwesome icon="arrow-left"/>{' '}
-              <I18n>{'content.create.back'}</I18n>
-            </NavLink>
-          )
+          <NavLink
+            to={`/${type}`}
+            activeClassName="is-active"
+            className={`btn btn-default`}
+            styleName="btn-back">
+            <FontAwesome icon="arrow-left"/>{' '}
+            <I18n>{'content.create.back'}</I18n>
+          </NavLink>
         }
+
         <NavLink
           to={`/${type}/create`}
           className={`btn btn-primary`}
@@ -45,6 +45,7 @@ export default class Content extends Component {
           <FontAwesome icon="plus"/>{' '}
           <I18n>{`content.create.${type}`}</I18n>
         </NavLink>
+
         </fieldset>
 
         {this.props.children || null}

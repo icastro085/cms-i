@@ -20,14 +20,17 @@ export default class Form extends Component {
 
   constructor(props) {
     super(props);
-    const { data, isLoading } = this.props;
+    const { isLoading } = this.props;
+
     this.state = {
-      data: this.setInitialField(data),
+      data: this.setInitialField(),
       isLoading,
+      isCreating: true,
     };
   }
 
-  setInitialField(data) {
+  setInitialField() {
+    let data = {};
     _.each(defaultFields, field => (
       typeof data[field] === undefined ? null : data[field] = '')
     );
@@ -42,13 +45,18 @@ export default class Form extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const {
-      data,
-      isLoading,
-    } = nextProps;
+    const { isLoading } = nextProps;
+    const { data } = this.state;
+    const data2 = nextProps.data;
+
+    if (data2 && data2.id) {
+      data.id = data2.id;
+    }
+
     this.setState({
       data,
       isLoading,
+      isCreating: false,
     });
   }
 
