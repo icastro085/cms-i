@@ -4,9 +4,9 @@ import Autobind from 'autobind-decorator'
 
 import styles from './index.less';
 
-import FontAwesome from './../FontAwesome';
-import Form from './../../containers/Content/Search/Form';
-import List from './../../containers/Content/Search/List';
+import FontAwesome from './../../FontAwesome';
+import Form from './Form';
+import List from './List';
 
 @CSSModules(styles, { allowMultiple: true })
 export default class Search extends Component {

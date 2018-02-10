@@ -1,55 +1,28 @@
-import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
-import { HashRouter as Route, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import ContentComponent from './component';
+import { search } from './../../actions/content';
 
-import styles from './index.less';
+const mapStateToProps = (state, ownProps) => {
+  const { items, isLoading } = state.content;
+  const { type } = ownProps;
+  return {
+    items,
+    isLoading,
+    type,
+  };
+};
 
-import Title from './../Container/Title';
-import FontAwesome from './../FontAwesome';
-import I18n from './../I18n';
-
-@CSSModules(styles, { allowMultiple: true })
-export default class Content extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-    const { type, search } = this.props;
-    search({ type });
-  }
-
-  render() {
-    const { type, enableBtnBack, isLoading } = this.props;
-
-    return (
-      <section styleName="content">
-        <fieldset disabled={isLoading}>
-        <Title>{`content.${type}`}</Title>
-        {
-          enableBtnBack && 
-          <NavLink
-            to={`/${type}`}
-            activeClassName="is-active"
-            className={`btn btn-default`}
-            styleName="btn-back">
-            <FontAwesome icon="arrow-left"/>{' '}
-            <I18n>{'content.create.back'}</I18n>
-          </NavLink>
-        }
-
-        <NavLink
-          to={`/${type}/create`}
-          className={`btn btn-primary`}
-          styleName="add-new">
-          <FontAwesome icon="plus"/>{' '}
-          <I18n>{`content.create.${type}`}</I18n>
-        </NavLink>
-
-        </fieldset>
-
-        {this.props.children || null}
-      </section>
-    );
-  }
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    search: (params = {}, query = {}) => {
+      dispatch(search(params, query));
+    },
+  };
 }
+
+const Content = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ContentComponent);
+
+export default Content;

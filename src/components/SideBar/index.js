@@ -9,7 +9,7 @@ import styles from './index.less';
 import FontAwesome from './../FontAwesome';
 import I18n from './../I18n';
 
-import Item from './../../containers/SideBar/Item';
+import Item from './Item';
 
 import config from './../../config';
 

@@ -4,8 +4,8 @@ import CSSModules from 'react-css-modules';
 
 import styles from './index.less';
 
-import FontAwesome from './../FontAwesome';
-import I18n from './../I18n';
+import FontAwesome from './../../FontAwesome';
+import I18n from './../../I18n';
 
 @CSSModules(styles, { allowMultiple: true })
 export default class Item extends Component {

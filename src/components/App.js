@@ -5,9 +5,9 @@ import _ from 'lodash';
 import SideBar from './SideBar';
 import Container from './Container';
 import Home from './Home';
-import Content from './../containers/Content';
-import Search from './../containers/Content/Search';
-import Edit from './../containers/Content/Edit';
+import Content from './Content';
+import Search from './Content/Search';
+import Edit from './Content/Edit';
 
 import config from './../config';
 

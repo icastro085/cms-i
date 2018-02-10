@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import EditComponent from './../../components/Content/Edit';
+import EditComponent from './component';
 import {
   search,
   create,
   update,
-} from './../../actions/content';
+} from './../../../actions/content';
 
 const mapStateToProps = (state, ownProps) => {
   const { isLoading, data } = state.content;

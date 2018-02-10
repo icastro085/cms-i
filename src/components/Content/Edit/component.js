@@ -7,8 +7,8 @@ import { ToastContainer as Toast } from 'react-toastr';
 
 import styles from './index.less';
 
-import FontAwesome from './../FontAwesome';
-import i18n from './../../i18n';
+import FontAwesome from './../../FontAwesome';
+import i18n from './../../../i18n';
 
 const defaultFields = [
   'title',

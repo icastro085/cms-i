@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ListComponent from './../../../components/Content/Search/List';
+import SearchComponent from './component';
 
 const mapStateToProps = (state, ownProps) => {
   const { items, isLoading } = state.content;
@@ -13,9 +13,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {};
 }
 
-const List = connect(
+const Search = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ListComponent);
+)(SearchComponent);
 
-export default connect()(List);
+export default connect()(Search);
