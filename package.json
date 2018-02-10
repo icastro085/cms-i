@@ -17,7 +17,7 @@
     "bootstrap": "^3.3.7",
     "font-awesome": "^4.7.0",
     "i18next": "^10.0.7",
-    "lodash": "^4.17.4",
+    "lodash": "^4.17.5",
     "react": "^16.0.0",
     "react-ckeditor-component": "^1.0.7",
     "react-dom": "^16.0.0",

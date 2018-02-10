@@ -9,7 +9,8 @@
     "list": {
       "title": "Título",
       "delete": "Deletar",
-      "edit": "Editar"
+      "edit": "Editar",
+      "not-found": "Nenhum registro foi encontrado"
     },
     "loading": "Carregando",
     "create": {

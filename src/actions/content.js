@@ -14,7 +14,7 @@ export const search = (params, query) => (
   (dispatch) => {
     dispatch(onSearchRequest(true));
     return Content.all(params.type, query)
-      .then(items => dispatch(onSearchResponse(items)))
+      .then(items => dispatch(onSearchResponse(items)));
   }
 );
 

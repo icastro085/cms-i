@@ -20,6 +20,7 @@ const onResultSearch = (items) => {
 const content = (state = {}, action) => {
   switch (action.type) {
     case CONTENT_SEARCH_RESPONSE:
+      console.log(action);
       return Object.assign(
         {},
         state,
