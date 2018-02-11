@@ -1,26 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CSSModules from 'react-css-modules';
 
 import styles from './index.less';
 
-import I18n from './../../../../I18n';
+import i18n from './../../../../../i18n';
 
-@CSSModules(styles, { allowMultiple: true })
-export default class Item extends Component {
-  render() {
-    const { item } = this.props;
-    return (
-      <tr>
-        <td>{item.title}</td>
-        <td className="text-right" styleName="operation">
-          <a className="btn btn-default btn-sm">
-            <i className="fa fa-pencil-square-o"/> <I18n>content.list.edit</I18n>
-          </a>
-          <a className="btn btn-danger btn-sm">
-            <i className="fa fa-trash-o"/> <I18n>content.list.delete</I18n>
-          </a>
-        </td>
-      </tr>
-    );
-  }
-}
+const Item = ({ item }) => (
+  <tr>
+    <td>{item.title}</td>
+    <td className="text-right" styleName="operation">
+      <a className="btn btn-default btn-sm">
+        <i className="fa fa-pencil-square-o"/> {i18n.t('content.list.edit')}
+      </a>
+      <a className="btn btn-danger btn-sm">
+        <i className="fa fa-trash-o"/> {i18n.t('content.list.delete')}
+      </a>
+    </td>
+  </tr>
+);
+
+export default CSSModules(Item, styles, { allowMultiple: true });

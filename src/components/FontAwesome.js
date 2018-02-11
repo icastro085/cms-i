@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-export default class FontAwesome extends Component {
-  render = () => (
-    <i className={`fa fa-${this.props.icon}`}/>
-  );
-}
+import React from 'react';
+const FontAwesome = ({ icon }) => (
+  <i className={`fa fa-${icon}`}/>
+);
+
+export default FontAwesome;

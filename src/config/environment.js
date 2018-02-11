@@ -12,10 +12,10 @@ const config =  {
   contents: [
     {
       type: 'page',
-      fields: [],
+      fields: ['title', 'text'],
     }, {
       type: 'news',
-      fields: [],
+      fields: ['title', 'text'],
     }
   ]
 };

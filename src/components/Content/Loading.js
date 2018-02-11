@@ -1,19 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CSSModules from 'react-css-modules';
 
-import I18n from './../I18n';
-
 import styles from './index.less';
+import i18n from './../../i18n';
 
-@CSSModules(styles, { allowMultiple: true })
-export default class Loading extends Component {
-  render() {
-    return (
-      <p className="text-center">
-        <i className="fa fa-circle-o-notch fa-spin"></i>
-        {' '}
-        <I18n>content.loading</I18n>
-      </p>
-    );
-  }
-}
+const Loading = () => (
+  <p className="text-center">
+    <i className="fa fa-circle-o-notch fa-spin"></i>
+    {' '}
+    {i18n.t('content.loading')}
+  </p>
+);
+
+export default CSSModules(Loading, styles, { allowMultiple: true });

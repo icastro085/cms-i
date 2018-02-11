@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import _ from 'lodash';
 
@@ -13,51 +13,47 @@ import config from './../config';
 
 const { contents } = config;
 
-class App extends Component {
-  render = () => {
-    const componetsSearch = _.map(contents, ({ type }) => (
-      <Route
-        key={`route-${type}`}
-        exact
-        path={`/${type}`}
-        render={
-          (props) => (
-            <Content {...props} type={type}>
-              <Search {...props} type={type}/>
-            </Content>
-          )
-        }/>
-    ));
+const componetsSearch = _.map(contents, ({ type }) => (
+  <Route
+    key={`route-${type}`}
+    exact
+    path={`/${type}`}
+    render={
+      (props) => (
+        <Content {...props} type={type}>
+          <Search {...props} type={type}/>
+        </Content>
+      )
+    }/>
+));
 
-    const componetsEdit = _.map(contents, ({ type }) => (
-      <Route
-        key={`route-${type}-edit`}
-        exact
-        path={`/${type}/:id`}
-        render={
-          (props) => (
-            <Content {...props} type={type} enableBtnBack={true}>
-              <Edit {...props} type={type}/>
-            </Content>
-          )
-        }/>
-    ));
+const componetsEdit = _.map(contents, ({ type }) => (
+  <Route
+    key={`route-${type}-edit`}
+    exact
+    path={`/${type}/:id`}
+    render={
+      (props) => (
+        <Content {...props} type={type} enableBtnBack={true}>
+          <Edit {...props} type={type}/>
+        </Content>
+      )
+    }/>
+));
 
-    return (
-      <Router>
-        <section>
-          <SideBar/>
-          <Container>
-            <Switch>
-              <Route exact path="/" component={Home}/>
-              {componetsSearch}
-              {componetsEdit}
-            </Switch>
-          </Container>
-        </section>
-      </Router>
-    );
-  };
-}
+const App = () => (
+  <Router>
+    <section>
+      <SideBar/>
+      <Container>
+        <Switch>
+          <Route exact path="/" component={Home}/>
+          {componetsSearch}
+          {componetsEdit}
+        </Switch>
+      </Container>
+    </section>
+  </Router>
+);
 
 export default App;

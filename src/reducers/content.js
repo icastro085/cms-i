@@ -1,6 +1,4 @@
-import 
-  contentActions,
-{
+import {
   CONTENT_SEARCH,
   CONTENT_SEARCH_REQUEST,
   CONTENT_SEARCH_RESPONSE,
@@ -11,38 +9,27 @@ import
   CONTENT_IS_LOADING,
 } from 'actions/content';
 
-const onResultSearch = (items) => {
-  return {
-    isLoading: false,
-    items,
-  };
-};
-
 const content = (state = {}, action) => {
   switch (action.type) {
     case CONTENT_SEARCH_RESPONSE:
-      return Object.assign(
-        {},
-        state,
-        onResultSearch(action.items),
-      );
+      return {
+        ...state,
+        isLoading: false,
+        items: action.items,
+      };
     break;
     case CONTENT_SEARCH_REQUEST:
-      return Object.assign(
-        {},
-        state,
-        { 
-          items: [],
-          isLoading: action.isLoading,
-        }
-      );
+      return {
+        ...state,
+        items: [],
+        isLoading: action.isLoading,
+      };
     break;
     case CONTENT_IS_LOADING:
-      return Object.assign(
-        {},
-        state,
-        { isLoading: action.isLoading }
-      );
+      return {
+        ...state,
+        isLoading: action.isLoading,
+      };
     break;
     default:
       return state;

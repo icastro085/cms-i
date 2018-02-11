@@ -20,12 +20,9 @@ export default class Form extends Component {
 
   constructor(props) {
     super(props);
-    const { isLoading } = this.props;
 
     this.state = {
       data: this.getInitialField(),
-      isLoading,
-      isCreating: true,
     };
   }
 
@@ -37,22 +34,10 @@ export default class Form extends Component {
     return data;
   }
 
-  componentDidMount() {
-    const { id } = this.props.match.params;
-    if (id !== 'create') {
-      //TODO: get data
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { isLoading } = nextProps;
-    this.setState({
-      isLoading,
-    });
-  }
-
   render() {
-    const { data, isLoading } = this.state;
+    const { data } = this.state;
+    const { isLoading } = this.props;
+
     return (
       <section>
         <Toast
@@ -80,7 +65,6 @@ export default class Form extends Component {
               }}
               config={{
                 height: '400',
-                readOnly: isLoading,
               }}
               />
 

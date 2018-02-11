@@ -1,20 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CSSModules from 'react-css-modules';
 
 import styles from './index.less';
 
-import I18n from './../../I18n';
+import i18n from './../../../i18n';
 
-@CSSModules(styles, { allowMultiple: true })
-export default class Title extends Component {
-  render() {
-    return (
-      <div>
-        <h3 styleName="title">
-          <I18n>{this.props.children}</I18n>
-        </h3>
-        <hr/>
-      </div>
-    );
-  }
-}
+const Title = ({ children }) => (
+  <div>
+    <h3 styleName="title">{i18n.t(children)}</h3>
+    <hr/>
+  </div>
+);
+
+export default CSSModules(Title, styles, { allowMultiple: true });

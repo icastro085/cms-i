@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CSSModules from 'react-css-modules';
 import { HashRouter as Route, NavLink } from 'react-router-dom';
 
@@ -6,50 +6,41 @@ import styles from './index.less';
 
 import Title from './../Container/Title';
 import FontAwesome from './../FontAwesome';
-import I18n from './../I18n';
+import i18n from './../../i18n';
 
-@CSSModules(styles, { allowMultiple: true })
-export default class Content extends Component {
-  constructor(props) {
-    super(props);
-  }
+const Content = ({
+  type,
+  enableBtnBack,
+  isLoading,
+  children,
+}) => (
+  <section styleName="content">
+    <fieldset disabled={isLoading}>
+    <Title>{`content.${type}`}</Title>
+    {
+      enableBtnBack && 
+      <NavLink
+        to={`/${type}`}
+        activeClassName="is-active"
+        className={`btn btn-default`}
+        styleName="btn-back">
+        <FontAwesome icon="arrow-left"/>{' '}
+        {i18n.t('content.create.back')}
+      </NavLink>
+    }
 
-  componentDidMount() {
-    const { type, search } = this.props;
-    search({ type });
-  }
+    <NavLink
+      to={`/${type}/create`}
+      className={`btn btn-primary`}
+      styleName="add-new">
+      <FontAwesome icon="plus"/>{' '}
+      {i18n.t(`content.create.${type}`)}
+    </NavLink>
 
-  render() {
-    const { type, enableBtnBack, isLoading } = this.props;
+    </fieldset>
 
-    return (
-      <section styleName="content">
-        <fieldset disabled={isLoading}>
-        <Title>{`content.${type}`}</Title>
-        {
-          enableBtnBack && 
-          <NavLink
-            to={`/${type}`}
-            activeClassName="is-active"
-            className={`btn btn-default`}
-            styleName="btn-back">
-            <FontAwesome icon="arrow-left"/>{' '}
-            <I18n>{'content.create.back'}</I18n>
-          </NavLink>
-        }
+    {children || null}
+  </section>
+);
 
-        <NavLink
-          to={`/${type}/create`}
-          className={`btn btn-primary`}
-          styleName="add-new">
-          <FontAwesome icon="plus"/>{' '}
-          <I18n>{`content.create.${type}`}</I18n>
-        </NavLink>
-
-        </fieldset>
-
-        {this.props.children || null}
-      </section>
-    );
-  }
-}
+export default CSSModules(Content, styles, { allowMultiple: true });

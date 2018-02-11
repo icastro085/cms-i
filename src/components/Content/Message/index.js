@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import CSSModules from 'react-css-modules';
 
-import I18n from './../../I18n';
 import FontAwesome from './../../FontAwesome';
-
 import styles from './index.less';
+
+import i18n from './../../../i18n';
 
 const Message = ({ text }) => (
   <p className="text-center" styleName="text-warning">
-    <FontAwesome icon="exclamation-triangle"/>{' '}
-    <I18n>{text}</I18n>
+    <FontAwesome icon="exclamation-triangle"/> {i18n.t(text)}
   </p>
 );
 

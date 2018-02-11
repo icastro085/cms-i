@@ -19,6 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   const { type } = ownProps;
+
   return {
     search: (params = {}, query = {}) => {
       dispatch(search(params, query));

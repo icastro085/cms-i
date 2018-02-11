@@ -5,7 +5,6 @@ import Autobind from 'autobind-decorator'
 import styles from './index.less';
 
 import FontAwesome from './../../../FontAwesome';
-import I18n from './../../../I18n';
 import i18n from './../../../../i18n';
 
 @CSSModules(styles, { allowMultiple: true })

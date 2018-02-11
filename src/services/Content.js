@@ -9,11 +9,11 @@ export default class Content {
 
   static save(type, data) {
     return content.save(type, data)
-      .then(response => response.data)
+      .then(response => response.data);
   }
 
   static update(type, data) {
     return content.update(type, data.id, data)
-      .then(response => response.data)
+      .then(response => response.data);
   }
 }
