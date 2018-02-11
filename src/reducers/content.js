@@ -31,6 +31,10 @@ const content = (state = {}, action) => {
         isLoading: action.isLoading,
       };
     break;
+    case CONTENT_EDIT:
+      console.log(state);
+      return state;
+    break;
     default:
       return state;
   }

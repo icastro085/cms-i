@@ -34,6 +34,14 @@ export default class Form extends Component {
     return data;
   }
 
+  componentDidMount() {
+    const { search, id } = this.props;
+    if (id) {
+      search(id)
+        .then(data => this.setState({ data }));
+    }
+  }
+
   render() {
     const { data } = this.state;
     const { isLoading } = this.props;

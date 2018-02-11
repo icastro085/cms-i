@@ -7,6 +7,11 @@ export default class Content {
       .catch(e => []);
   }
 
+  static find(type, id) {
+    return content.get(type, id)
+      .then(response => response.data);
+  }
+
   static save(type, data) {
     return content.save(type, data)
       .then(response => response.data);

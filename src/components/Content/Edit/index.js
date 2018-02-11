@@ -4,26 +4,26 @@ import {
   search,
   create,
   update,
+  find,
 } from './../../../actions/content';
 
 const mapStateToProps = (state, ownProps) => {
-  const { isLoading, data } = state.content;
+  const { isLoading } = state.content;
   const { type, match } = ownProps;
+  const { id } = match.params;
+  
   return {
     type,
     isLoading,
-    match,
-    data: data,
+    id,
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const { type } = ownProps;
+  const { type, id } = ownProps;
 
   return {
-    search: (params = {}, query = {}) => {
-      dispatch(search(params, query));
-    },
+    search: id => dispatch(find(type, id)),
     create: data => dispatch(create(type, data)),
     update: data => dispatch(update(type, data))
   };

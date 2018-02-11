@@ -19,6 +19,17 @@ export const search = (params, query) => (
   }
 );
 
+export const find = (type, id) => (
+  (dispatch) => {
+    dispatch(isLoading(true));
+    return Content.find(type, id)
+      .then((data) => {
+        dispatch(isLoading(false));
+        return data;
+      });
+  }
+);
+
 export const onSearchRequest = (isLoading) => (
   {
     type: CONTENT_SEARCH_REQUEST,

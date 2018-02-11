@@ -12,7 +12,7 @@ import Item from './Item';
 
 import i18n from './../../../../i18n';
 
-const List = ({ isLoading, items }) => {
+const List = ({ isLoading, items, type }) => {
   if (isLoading) {
     return <Loading/>;
   }
@@ -21,7 +21,7 @@ const List = ({ isLoading, items }) => {
     return <Message text="content.list.not-found"/>;
   } else {
     items = items.map((item, index) =>
-      <Item key={index} item={item}/>
+      <Item key={index} item={item} type={type}/>
     );
   }
 
