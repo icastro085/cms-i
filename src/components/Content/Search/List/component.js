@@ -21,7 +21,7 @@ export default class List extends Component {
     }
 
     let { items } = this.props;
-    console.log(items);
+
     if (_.isEmpty(items)) {
       return <Message text="content.list.not-found"/>;
     } else {

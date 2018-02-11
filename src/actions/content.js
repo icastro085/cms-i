@@ -5,6 +5,7 @@ export const CONTENT_CREATE = 'CONTENT_CREATE';
 export const CONTENT_UPDATE = 'CONTENT_UPDATE';
 export const CONTENT_EDIT = 'CONTENT_EDIT';
 export const CONTENT_REMOVE = 'CONTENT_REMOVE';
+export const CONTENT_IS_LOADING = 'CONTENT_IS_LOADING';
 
 import Content from './../services/Content';
 
@@ -12,7 +13,7 @@ let startedRequest;
 
 export const search = (params, query) => (
   (dispatch) => {
-    dispatch(onSearchRequest(true));
+    dispatch(isLoading(true));
     return Content.all(params.type, query)
       .then(items => dispatch(onSearchResponse(items)));
   }
@@ -34,36 +35,43 @@ export const onSearchResponse = (items) => (
 
 export const create = (type, data = {}) => (
   (dispatch) => {
-    dispatch(onSearchRequest(true));
+    dispatch(isLoading(true));
     return Content.save(type, data)
-      .then(data => dispatch({
-        type: CONTENT_CREATE,
-        data,
-      }))
+      .then((data) => {
+        dispatch(isLoading(false));
+        return data;
+      });
   }
 );
 
 export const update = (type, data = {}) => (
   (dispatch) => {
-    dispatch(onSearchRequest(true));
+    dispatch(isLoading(true));
     return Content.update(type, data)
-      .then(data => dispatch({
-        type: CONTENT_UPDATE,
-        data,
-      }))
+      .then((data) => {
+        dispatch(isLoading(false));
+        return data;
+      });
   }
 );
 
-export const edit = (id) => (
+export const edit = id => (
   {
     type: CONTENT_EDIT,
     id,
   }
 );
 
-export const remove = (id) => (
+export const remove = id => (
   {
     type: CONTENT_DELETE,
     id,
+  }
+);
+
+export const isLoading = status => (
+  {
+    type: CONTENT_IS_LOADING,
+    isLoading: status,
   }
 );

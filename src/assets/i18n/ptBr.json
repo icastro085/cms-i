@@ -20,7 +20,11 @@
       "text": "Texto",
       "save": "Salvar",
       "update": "Atualizar",
-      "back": "Voltar"
+      "back": "Voltar",
+      "message": {
+        "saved": "Registro salvo com sucesso!",
+        "title": "Atenção!"
+      }
     }
   }
 }

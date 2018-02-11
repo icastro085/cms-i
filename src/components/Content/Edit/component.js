@@ -23,13 +23,13 @@ export default class Form extends Component {
     const { isLoading } = this.props;
 
     this.state = {
-      data: this.setInitialField(),
+      data: this.getInitialField(),
       isLoading,
       isCreating: true,
     };
   }
 
-  setInitialField() {
+  getInitialField() {
     let data = {};
     _.each(defaultFields, field => (
       typeof data[field] === undefined ? null : data[field] = '')
@@ -46,17 +46,8 @@ export default class Form extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { isLoading } = nextProps;
-    const { data } = this.state;
-    const data2 = nextProps.data;
-
-    if (data2 && data2.id) {
-      data.id = data2.id;
-    }
-
     this.setState({
-      data,
       isLoading,
-      isCreating: false,
     });
   }
 
@@ -123,22 +114,28 @@ export default class Form extends Component {
   @Autobind
   onSubmit(e) {
     e.preventDefault();
-    const { create, update, isLoading } = this.props;
+    const { create, update } = this.props;
     const { data } = this.state;
 
     if (data.id) {
-      update(data)
-        .then( () => this.showMessageSuccess());
+      update(data).then(this.onResult);
     } else {
-      create(data)
-        .then( () => this.showMessageSuccess());
+      create(data).then(this.onResult);
     }
+  }
+
+  @Autobind
+  onResult({ id }) {
+    const { data } = this.state;
+    data.id = id;
+    this.showMessageSuccess();
+    this.setState({ data });
   }
 
   showMessageSuccess() {
     this.toast.success(
-      'Registro salvo com sucesso!',
-      'Atenção!',
+      i18n.t('content.create.message.saved'),
+      i18n.t('content.create.message.title'),
       {
         closeButton: true,
       }

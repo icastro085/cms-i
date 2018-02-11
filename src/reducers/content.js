@@ -8,6 +8,7 @@ import
   CONTENT_UPDATE,
   CONTENT_EDIT,
   CONTENT_REMOVE,
+  CONTENT_IS_LOADING,
 } from 'actions/content';
 
 const onResultSearch = (items) => {
@@ -20,7 +21,6 @@ const onResultSearch = (items) => {
 const content = (state = {}, action) => {
   switch (action.type) {
     case CONTENT_SEARCH_RESPONSE:
-      console.log(action);
       return Object.assign(
         {},
         state,
@@ -31,18 +31,17 @@ const content = (state = {}, action) => {
       return Object.assign(
         {},
         state,
-        { isLoading: action.isLoading }
+        { 
+          items: [],
+          isLoading: action.isLoading,
+        }
       );
     break;
-    case CONTENT_CREATE:
-    case CONTENT_UPDATE:
+    case CONTENT_IS_LOADING:
       return Object.assign(
         {},
         state,
-        {
-          data: Object.assign({}, action.data),
-          isLoading: false,
-        }
+        { isLoading: action.isLoading }
       );
     break;
     default:

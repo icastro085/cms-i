@@ -25,7 +25,7 @@ const store = createStore(
   todoApp,
   applyMiddleware(
     thunkMiddleware,
-    loggerMiddleware
+    //loggerMiddleware
   )
 );
 const container = document.getElementById('root');
