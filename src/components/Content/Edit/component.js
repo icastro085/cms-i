@@ -66,7 +66,7 @@ export default class Form extends Component {
 
             <label>{i18n.t('content.create.text')}</label>
             <CKEditor
-              activeClass="p10" 
+              activeClass="p10"
               content={data.text} 
               events={{
                 change: this.onChange,

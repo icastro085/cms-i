@@ -63,7 +63,10 @@ import FontAwesome from './../../FontAwesome';
               styleName="background-lock"
               onClick={this.hidePopup}></div>
             <div styleName="content-choice">
-              <h4>Atenção</h4>
+              <h4 styleName="title">
+                <FontAwesome icon="exclamation-triangle"/>{' '}
+                Atenção
+              </h4>
               <hr/>
               <p className="text-center" styleName="message">
                 {children}
