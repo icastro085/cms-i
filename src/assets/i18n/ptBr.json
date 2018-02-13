@@ -25,6 +25,11 @@
         "saved": "Registro salvo com sucesso!",
         "title": "Atenção!"
       }
+    },
+    "popup-choice": {
+      "title": "Atenção",
+      "confirm": "CONFIRMAR",
+      "cancel": "CANCELAR"
     }
   }
 }

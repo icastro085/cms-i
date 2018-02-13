@@ -5,6 +5,7 @@ import Autobind from 'autobind-decorator';
 import style from './index.less';
 
 import FontAwesome from './../../FontAwesome';
+import i18n from './../../../i18n';
 
 @CSSModules(style, { allowMultiple: true })
  export default class PopupChoice extends Component {
@@ -65,7 +66,7 @@ import FontAwesome from './../../FontAwesome';
             <div styleName="content-choice">
               <h4 styleName="title">
                 <FontAwesome icon="exclamation-triangle"/>{' '}
-                Atenção
+                {i18n.t('content.popup-choice.title')}
               </h4>
               <hr/>
               <p className="text-center" styleName="message">
@@ -76,12 +77,12 @@ import FontAwesome from './../../FontAwesome';
                   className="btn btn-success"
                   onClick={this.confirm}>
                   <FontAwesome icon="check"/>{' '}
-                  CONFIMAR</button>
+                  {i18n.t('content.popup-choice.confirm')}</button>
                 <button
                   className="btn btn-danger"
                   onClick={this.hidePopup}>
                   <FontAwesome icon="times"/>{' '}
-                  CANCELAR</button>
+                  {i18n.t('content.popup-choice.cancel')}</button>
               </div>
             </div>
           </div>

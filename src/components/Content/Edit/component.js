@@ -36,7 +36,7 @@ export default class Form extends Component {
 
   componentDidMount() {
     const { search, id } = this.props;
-    if (id) {
+    if (id && id !== 'create') {
       search(id)
         .then(data => this.setState({ data }));
     }

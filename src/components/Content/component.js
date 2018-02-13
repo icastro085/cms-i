@@ -29,13 +29,16 @@ const Content = ({
         </NavLink>
       }
 
-      <NavLink
-        to={`/${type}/create`}
-        className={`btn btn-primary`}
-        styleName="add-new">
-        <FontAwesome icon="plus"/>{' '}
-        {i18n.t(`content.create.${type}`)}
-      </NavLink>
+      {
+        !enableBtnBack && 
+        <NavLink
+          to={`/${type}/create`}
+          className={`btn btn-primary`}
+          styleName="add-new">
+          <FontAwesome icon="plus"/>{' '}
+          {i18n.t(`content.create.${type}`)}
+        </NavLink>
+      }
 
     </fieldset>
 

@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
   const { isLoading } = state.content;
   const { type, match } = ownProps;
   const { id } = match.params;
-  
+
   return {
     type,
     isLoading,
