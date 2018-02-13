@@ -75,7 +75,7 @@ export const edit = id => (
 
 export const remove = id => (
   {
-    type: CONTENT_DELETE,
+    type: CONTENT_REMOVE,
     id,
   }
 );

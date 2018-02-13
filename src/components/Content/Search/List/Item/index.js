@@ -3,6 +3,7 @@ import ItemComponent from './component';
 
 import {
   edit,
+  remove,
 } from './../../../../../actions/content';
 
 const mapStateToProps = (state, ownProps) => {
@@ -17,9 +18,12 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   const { type, item } = ownProps;
   return {
-    edit: (history) => {
-      history.push(`/${type}/${item.id}`);
-    },
+    edit: history => (
+      history.push(`/${type}/${item.id}`)
+    ),
+    remove: id => (
+      dispatch(remove(id))
+    ),
   };
 }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
-import Autobind from 'autobind-decorator'
+import Autobind from 'autobind-decorator';
 
 import styles from './index.less';
 

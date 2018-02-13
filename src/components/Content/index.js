@@ -4,7 +4,7 @@ import ContentComponent from './component';
 import { search } from './../../actions/content';
 
 const mapStateToProps = (state, ownProps) => {
-  const { items, isLoading } = state.content;
+  const { items, isLoading, showPopupChoice } = state.content;
   const { type } = ownProps;
   return {
     items,

@@ -16,30 +16,30 @@ const Content = ({
 }) => (
   <section styleName="content">
     <fieldset disabled={isLoading}>
-    <Title>{`content.${type}`}</Title>
-    {
-      enableBtnBack && 
-      <NavLink
-        to={`/${type}`}
-        activeClassName="is-active"
-        className={`btn btn-default`}
-        styleName="btn-back">
-        <FontAwesome icon="arrow-left"/>{' '}
-        {i18n.t('content.create.back')}
-      </NavLink>
-    }
+      <Title>{`content.${type}`}</Title>
+      {
+        enableBtnBack && 
+        <NavLink
+          to={`/${type}`}
+          activeClassName="is-active"
+          className={`btn btn-default`}
+          styleName="btn-back">
+          <FontAwesome icon="arrow-left"/>{' '}
+          {i18n.t('content.create.back')}
+        </NavLink>
+      }
 
-    <NavLink
-      to={`/${type}/create`}
-      className={`btn btn-primary`}
-      styleName="add-new">
-      <FontAwesome icon="plus"/>{' '}
-      {i18n.t(`content.create.${type}`)}
-    </NavLink>
+      <NavLink
+        to={`/${type}/create`}
+        className={`btn btn-primary`}
+        styleName="add-new">
+        <FontAwesome icon="plus"/>{' '}
+        {i18n.t(`content.create.${type}`)}
+      </NavLink>
 
     </fieldset>
 
-    {children || null}
+    {children}
   </section>
 );
 
