@@ -10,7 +10,7 @@ import i18n from './../../i18n';
 
 const Content = ({
   type,
-  enableBtnBack,
+  isEdit,
   isLoading,
   children,
 }) => (
@@ -18,7 +18,7 @@ const Content = ({
     <fieldset disabled={isLoading}>
       <Title>{`content.${type}`}</Title>
       {
-        enableBtnBack && 
+        isEdit && 
         <NavLink
           to={`/${type}`}
           activeClassName="is-active"
@@ -30,7 +30,7 @@ const Content = ({
       }
 
       {
-        !enableBtnBack && 
+        !isEdit && 
         <NavLink
           to={`/${type}/create`}
           className={`btn btn-primary`}

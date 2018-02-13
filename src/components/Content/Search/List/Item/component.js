@@ -48,13 +48,15 @@ class Item extends Component {
           <a 
             className="btn btn-default btn-sm" 
             onClick={() => edit(history)}>
-            <i className="fa fa-pencil-square-o"/> {i18n.t('content.list.edit')}
+            <i className="fa fa-pencil-square-o"/>
+            <span>{i18n.t('content.list.edit')}</span>
           </a>
 
           <a 
             className="btn btn-danger btn-sm"
             onClick={this.showPopupRemove}>
-            <i className="fa fa-trash-o"/> {i18n.t('content.list.delete')}
+            <i className="fa fa-trash-o"/>
+            <span>{i18n.t('content.list.delete')}</span>
           </a>
 
           <PopupChoice

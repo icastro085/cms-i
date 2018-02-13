@@ -1,3 +1,9 @@
-.operation > a{
+@import './../../../../../assets/devices';
+
+.operation > a {
   margin-left: 5px;
 }
+
+.devices-mobile(~"operation > a > span", {
+  display: none;
+});

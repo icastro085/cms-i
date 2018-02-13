@@ -4,7 +4,7 @@ import ContentComponent from './component';
 import { search } from './../../actions/content';
 
 const mapStateToProps = (state, ownProps) => {
-  const { items, isLoading, showPopupChoice } = state.content;
+  const { items, isLoading } = state.content;
   const { type } = ownProps;
   return {
     items,
@@ -14,9 +14,11 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const { type } = ownProps;
+  const { type, isEdit } = ownProps;
 
-  dispatch(search({ type }));
+  if (!isEdit) {
+    dispatch(search({ type }));
+  }
 
   return {
     search: (params = {}, query = {}) => {

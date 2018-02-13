@@ -34,7 +34,7 @@ const componetsEdit = _.map(contents, ({ type }) => (
     path={`/${type}/:id`}
     render={
       (props) => (
-        <Content {...props} type={type} enableBtnBack={true}>
+        <Content {...props} type={type} isEdit={true}>
           <Edit {...props} type={type}/>
         </Content>
       )
