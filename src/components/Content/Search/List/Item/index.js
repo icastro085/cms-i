@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import ItemComponent from './component';
 
 import {
-  edit,
   remove,
 } from './../../../../../actions/content';
 
@@ -25,7 +24,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(remove(id))
     ),
   };
-}
+};
 
 export default connect(
   mapStateToProps,

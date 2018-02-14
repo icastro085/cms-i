@@ -4,7 +4,7 @@ export default class Content {
   static all(type, query = {}) {
     return content.all(type, query)
       .then(response => response.data)
-      .catch(e => []);
+      .catch(() => []);
   }
 
   static find(type, id) {

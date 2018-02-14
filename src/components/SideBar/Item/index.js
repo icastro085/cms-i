@@ -1,20 +1,20 @@
 import { connect } from 'react-redux';
 import ItemComponent from './component';
-import { setActiveSideBarItem } from '../../../actions/sideBar'
+import { setActiveSideBarItem } from '../../../actions/sideBar';
 
-const mapStateToProps = (state, ownProps) => {
-  return {
+const mapStateToProps = (state, ownProps) => (
+  {
     active: state.sideBar === ownProps.link,
-  };
-};
+  }
+);
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
+const mapDispatchToProps = (dispatch, ownProps) => (
+  {
     onClick: () => {
       dispatch(setActiveSideBarItem(ownProps.link));
     },
-  };
-}
+  }
+);
 
 const Item = connect(
   mapStateToProps,

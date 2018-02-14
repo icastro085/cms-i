@@ -1,4 +1,4 @@
-const config =  {
+const config = {
   sideBar: {
     items: [
       { icon: 'home', link: '/', label: 'content.home' },
@@ -16,8 +16,8 @@ const config =  {
     }, {
       type: 'news',
       fields: ['title', 'text'],
-    }
-  ]
+    },
+  ],
 };
 
-export default Object.assign({}, config, __APP_CONFIG__);
+export default Object.assign({ }, config, __APP_CONFIG__);

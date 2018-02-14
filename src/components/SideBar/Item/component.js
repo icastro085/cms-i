@@ -8,12 +8,19 @@ import FontAwesome from './../../FontAwesome';
 
 import i18n from './../../../i18n';
 
-const Item = ({ active, onClick, link, icon, children }) => (
+const Item = ({
+  active,
+  onClick,
+  link,
+  icon,
+  children,
+}) => (
   <li styleName={active ? 'active' : ''}>
-    <NavLink 
+    <NavLink
       onClick={onClick}
-      to={link}>
-      <FontAwesome icon={icon}/>
+      to={link}
+    >
+      <FontAwesome icon={icon} />
       {i18n.t(children)}
     </NavLink>
   </li>

@@ -5,10 +5,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 
 import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger'
-
-import "babel-polyfill";
-import 'whatwg-fetch';
+import { createLogger } from 'redux-logger';
 
 import todoApp from './todoApp';
 import App from './components/App';
@@ -20,19 +17,19 @@ import '../node_modules/animate.css/animate.css';
 import './assets/style.less';
 import './assets/global.css';
 
-const loggerMiddleware = createLogger()
+const loggerMiddleware = createLogger();
 const store = createStore(
   todoApp,
   applyMiddleware(
     thunkMiddleware,
-    //loggerMiddleware
+    loggerMiddleware
   )
 );
 const container = document.getElementById('root');
 
 render(
   <Provider store={store}>
-    <App/>
+    <App />
   </Provider>,
   container
 );

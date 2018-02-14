@@ -9,7 +9,6 @@ import i18n from './../../../../../i18n';
 import PopupChoice from './../../../PopupChoice';
 
 class Item extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -18,10 +17,9 @@ class Item extends Component {
   }
 
   @Autobind
-  showPopupRemove() {
-    this.setState({
-      showPopupRemove: true,
-    });
+  onConfirm() {
+    this.hidePopupRemove();
+    console.log('confirm');
   }
 
   @Autobind
@@ -32,13 +30,18 @@ class Item extends Component {
   }
 
   @Autobind
-  onConfirm() {
-    this.hidePopupRemove();
-    console.log('confirm');
+  showPopupRemove() {
+    this.setState({
+      showPopupRemove: true,
+    });
   }
 
   render() {
-    const { item, edit, remove, history } = this.props;
+    const {
+      item,
+      edit,
+      history,
+    } = this.props;
     const { showPopupRemove } = this.state;
 
     return (
